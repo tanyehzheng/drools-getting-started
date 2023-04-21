@@ -22,8 +22,7 @@ public class RuleTest {
         LOG.info("Creating RuleUnit");
         MeasurementUnit measurementUnit = new MeasurementUnit();
 
-        RuleUnitInstance<MeasurementUnit> instance = RuleUnitProvider.get().createRuleUnitInstance(measurementUnit);
-        try {
+        try (RuleUnitInstance<MeasurementUnit> instance = RuleUnitProvider.get().createRuleUnitInstance(measurementUnit);) {
             LOG.info("Insert data");
             measurementUnit.getMeasurements().add(new Measurement("color", "red"));
             measurementUnit.getMeasurements().add(new Measurement("color", "green"));
@@ -36,8 +35,6 @@ public class RuleTest {
             assertTrue(measurementUnit.getControlSet().contains("red"), "contains red");
             assertTrue(measurementUnit.getControlSet().contains("green"), "contains green");
             assertTrue(measurementUnit.getControlSet().contains("blue"), "contains blue");
-        } finally {
-            instance.close();
         }
     }
 }
