@@ -11,7 +11,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.release>11</maven.compiler.release>
+    <maven.compiler.release>20</maven.compiler.release>
     <drools-version>8.37.0.Final</drools-version>
     <slf4j-version>2.0.4</slf4j-version>
     <junit-version>5.9.2</junit-version>
